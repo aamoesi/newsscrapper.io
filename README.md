@@ -32,8 +32,10 @@ Beyond these requirements, be creative and have fun with this
 
 ![scrapping list](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrapping.png)
 
-![scrapping list](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrapping.png)
+![scrapping list](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/completscrapping.png)
 
-![scrapping list](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrapping.png)
+![scrapping list](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/landingpage.png)
 
-![scrapping list](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrapping.png)
+![scrapping list](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrappingresult.png)
+
+![scrapping list](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrappingcomment.png)
