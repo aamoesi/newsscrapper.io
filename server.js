@@ -202,7 +202,8 @@ app.post("/notes/save/:id", function(req, res) {
     article: req.params.id
   });
   console.log(req.body)
-  // And save the new note the db
+  // And save the new note the heroku logs --tail
+  
   newNote.save(function(error, note) {
     // Log any errors
     if (error) {
