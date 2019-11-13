@@ -30,16 +30,14 @@ Users should also be able to leave comments on the articles displayed and revisi
 
 Beyond these requirements, be creative and have fun with this
 
-![scrapping](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrapping.png)
+![GitHub scraping](./public/assets/img/scrapping.png)
 
-![complet scrapping](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/completscrapping.png)
+![GitHub complet scraping](./public/assets/img/completscrapping.png)
 
-![landing page](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/landingpage.png)
+![landing page](./public/assets/img/landingpage.png)
 
-![scrapping result](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrappingresult.png)
+![scrapping result](./public/assets/img/scrappingresult.png)
 
-![user comment](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrappingcomment.png)
+![user comment](./public/assets/img/scrappingcomment.png)
 
 ![GitHub Clicky](./public/assets/images/screenshot.JPG)
-
-![GitHub scraping new](./public/assets/img/scrapping.png)
