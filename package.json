@@ -1,33 +1,29 @@
 {
-  "name": "newsscrapping",
+  "name": "NewScraper",
   "version": "1.0.0",
-  "description": "## Overview",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aamoesi/newsscrapper.io.git"
+    "url": "git+https://github.com/EwilsonS/NewScraper.git"
   },
-  "author": "Anthony Amoesi Ansah",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aamoesi/newsscrapper.io/issues"
+    "url": "https://github.com/EwilsonS/NewScraper/issues"
   },
-  "homepage": "https://github.com/aamoesi/newsscrapper.io#readme",
+  "homepage": "https://github.com/EwilsonS/NewScraper#readme",
   "dependencies": {
-    "axios": "^0.19.0",
-    "body-parser": "^1.19.0",
-    "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "handlebars": "^4.5.1",
-    "mongoose": "^4.13.19",
+    "mongoose": "^5.2.14",
     "morgan": "^1.9.1",
-    "mysql": "^2.17.1",
     "request": "^2.88.0"
-  },
-  "devDependencies": {}
+  }
 }
