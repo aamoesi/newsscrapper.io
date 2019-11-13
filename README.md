@@ -36,6 +36,6 @@ Beyond these requirements, be creative and have fun with this
 
 ![landing page](./public/assets/img/landingpage.png)
 
-![scrapping result](./public/assets/img/scrappingresult.png)
+![scrapping result](./public/assets/img/scrapingresult.png)
 
 ![user comment](./public/assets/img/scrappingcomment.png)
