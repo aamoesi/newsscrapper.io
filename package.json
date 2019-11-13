@@ -1,33 +1,28 @@
 {
-  "name": "mongoose_skeleton",
+  "name": "week-18-mongo",
   "version": "1.0.0",
-  "description": "### Overview",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.19.0",
-    "cheerio": "^1.0.0-rc.3",
-    "dotenv": "^8.2.0",
-    "dotgitignore": "^2.1.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "handlebars": "^4.5.1",
-    "mongoose": "^5.7.10",
-    "morgan": "^1.9.1"
-  },
-  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aamoesi/newsscrapper.io.git"
+    "url": "git+https://github.com/Kbowen200247/week-18-mongo.git"
   },
+  "author": "Kristen Bowen",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aamoesi/newsscrapper.io/issues"
+    "url": "https://github.com/Kbowen200247/week-18-mongo/issues"
   },
-  "homepage": "https://github.com/aamoesi/newsscrapper.io#readme"
+  "homepage": "https://github.com/Kbowen200247/week-18-mongo#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.11.10",
+    "morgan": "^1.8.2",
+    "request": "^2.81.0"
+  }
 }

@@ -21,7 +21,7 @@ $(document).on("click", "p", function() {
     url: "/articles/" + thisId
   })
     // With that done, add the note information to the page
-    .then(function(data) {
+    .done(function(data) {
       console.log(data);
       // The title of the article
       $("#notes").append("<h2>" + data.title + "</h2>");
@@ -59,7 +59,7 @@ $(document).on("click", "#savenote", function() {
     }
   })
     // With that done
-    .then(function(data) {
+    .done(function(data) {
       // Log the response
       console.log(data);
       // Empty the notes section
