@@ -40,4 +40,4 @@ Beyond these requirements, be creative and have fun with this
 
 ![user comment](./public/assets/img/scrappingcomment.png)
 
-![GitHub Clicky](./public/assets/images/screenshot.JPG)
+![GitHub Clicky](./public/assets/img/screenshot.JPG)
