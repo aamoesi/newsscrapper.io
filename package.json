@@ -1,10 +1,11 @@
 {
-  "name": "week-18-mongo",
+  "name": "newsscrapping",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Overview",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,16 @@
   },
   "homepage": "https://github.com/Kbowen200247/week-18-mongo#readme",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.15.4",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^4.11.10",
-    "morgan": "^1.8.2",
-    "request": "^2.81.0"
-  }
+    "handlebars": "^4.5.1",
+    "mongoose": "^4.13.19",
+    "morgan": "^1.9.1",
+    "mysql": "^2.17.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {}
 }
