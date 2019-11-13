@@ -17,7 +17,8 @@
     "dotgitignore": "^2.1.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
-    "mongoose": "^5.7.7",
+    "handlebars": "^4.5.1",
+    "mongoose": "^5.7.10",
     "morgan": "^1.9.1"
   },
   "devDependencies": {},
