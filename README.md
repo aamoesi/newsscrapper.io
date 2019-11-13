@@ -39,3 +39,7 @@ Beyond these requirements, be creative and have fun with this
 ![scrapping result](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrappingresult.png)
 
 ![user comment](https://github.com/aamoesi/newsscrapper.io/tree/master/public/assets/img/scrappingcomment.png)
+
+![GitHub Clicky](./public/assets/images/screenshot.JPG)
+
+![GitHub scraping new](./public/assets/img/scrapping.png)
