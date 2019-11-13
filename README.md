@@ -39,5 +39,3 @@ Beyond these requirements, be creative and have fun with this
 ![scrapping result](./public/assets/img/scrappingresult.png)
 
 ![user comment](./public/assets/img/scrappingcomment.png)
-
-![GitHub Clicky](./public/assets/img/screenshot.JPG)
