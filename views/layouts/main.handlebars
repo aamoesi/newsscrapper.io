@@ -2,43 +2,61 @@
 <html lang="en">
 
 <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
-<link rel="stylesheet" href="">
-        <link rel="stylesheet" href="../../assets/css/style.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
 
-        
-    <title>The Real Fake News Scraper </title>
+    <title>MongoDB Scraper</title>
 </head>
+
 <body>
+    <nav class="nav-wrapper blue">
+        <div class="container">
+            <a href="/" class="brand-logo hide-on-med-and-down">MongoDB Scraper</a>
+            <ul class="right">
+                <li><a href="#modal3" id='scrape' class='btn modal-trigger'>Scrape</a></li>
+                <li><a href="/" class='btn'>View Scrapped</a></li>
+                <li><a href="./viewSavedPosts" class='btn'>View Saved</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="jumbotron align-center">
-  <h1 class="display-4">The Daily Crow - The Real Fake News Scraper </h1>
-  <p class="lead">In this assignment at University of Minnesota Coding Boot Camp April 2018 Cohort, I created a web app that lets users view and leave comments on the latest news. However I did not write any articles; instead, i flex my Mongoose and Cheerio muscles to scrape news from another site and display them for your plesure.
-</p>
-  <hr class="my-4">
-  <p> by Jagnoor Singh </p>
-  
-</div>
+    <div class="container">
+        <div class="row posts">
+            {{{body}}}
+        </div>
+    </div>
 
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Post Saved</h4>
+            <p>This post has been saved. Click on "View Saved" to see your saved posts.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="save-post modal-close waves-effect waves-green btn-flat">Okay</a>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <h4>Posts Scrapped</h4>
+            <p>Posts for Ikea products have been successfully scraped from Kijiji. Page is reloading...</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="save-post modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
 
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-
-    {{{body}}}
-
+    <script src='./app.js'></script>
 </body>
 
 </html>
