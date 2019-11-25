@@ -1,134 +1,71 @@
-var express = require("express");
-var logger = require("morgan");
-var mongoose = require("mongoose");
 
-// Our scraping tools
-// Axios is a promised-based http library, similar to jQuery's Ajax method
-// It works on the client and on the server
-var axios = require("axios");
-var cheerio = require("cheerio");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const request = require("request");
+const cheerio = require("cheerio");
+//const logger = require("logger");
+const app = express();
 
-// Require all models
-var db = require("./models");
-
-var PORT = process.env.PORT || 3000;
-
-// Initialize Express
-var app = express();
-
-// Configure middleware
-
-// Use morgan logger for logging requests
-app.use(logger("dev"));
-// Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Make public a static folder
 app.use(express.static("public"));
 
-// Connect to the Mongo DB
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+// set express data parsing
+// app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-mongoose.connect(MONGODB_URI);
+// set handlebars views
+//app.engine("handlebars", exphbs({extname: "handlebars", defaultLayout: "main", layoutsDir: __dirname + "/views/layouts" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+app.set('views', __dirname + '/views')
 
-// Routes
 
-// A GET route for scraping the echoJS website
-app.get("/scrape", function(req, res) {
-  // First, we grab the body of the html with axios
-  axios.get("http://www.bioethics.net/news").then(function(response) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
-    var $ = cheerio.load(response.data);
+// models required
+require("./models/notes.js");
+require("./models/articles.js");
 
-    // Now, we grab every h2 within an article tag, and do the following:
-    $("h5").each(function(i, element) {
-      // Save an empty result object
-      var result = {};
+// setup mongoose connection
+const databaseUri = "mongodb://localhost/mongoscraper";
+const collections = ["scrapedarticles"];
 
-      // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
-        .children("a")
-        .text();
-      result.link = $(this)
-        .children("a")
-        .attr("href");
 
-      // Create a new Article using the `result` object built from scraping
-      db.Article.create(result)
-        .then(function(dbArticle) {
-          // View the added result in the console
-          console.log(dbArticle);
-        })
-        .catch(function(err) {
-          // If an error occurred, log it
-          console.log(err);
-        });
-    });
+console.log('MONGODB_URI', process.env.MONGODB_URI)
 
-    // Send a message to the client
-    res.send("Scrape Complete!");
-  });
+if (process.env.MONGODB_URI) {
+	console.log('remote')
+	mongoose.connect(process.env.MONGODB_URI);
+} else {
+	console.log('remote')
+	mongoose.connect(databaseUri);
+}
+
+console.log("created new database: ", databaseUri)
+
+//Get the default connection
+var db = mongoose.connection;
+
+/// bind connection to error event
+db.on('error', function (err) { 
+	console.log('MongoDB connection error:', err);
 });
 
-// Route for getting all Articles from the db
-app.get("/articles", function(req, res) {
-  // TODO: Finish the route so it grabs all of the articles
-    // Find all results from the scrapedData collection in the db
-    db.Article.find()
-      // Throw any errors to the console
-      .then(function(dbPopulate) {
-        // If any Libraries are found, send them to the client with any associated Books
-        res.json(dbPopulate);
-      })
-      .catch(function(err) {
-        // If an error occurs, send it back to the client
-        res.json(err);
-      });
+// log success once in mongoose
+db.once("open", function() {
+  console.log("Mongoose connection successful.");
 });
 
-// Route for grabbing a specific Article by id, populate it with it's note
-app.get("/articles/:id", function(req, res) {
-  // TODO
-  // ====
-  // Finish the route so it finds one article using the req.params.id,
-  // and run the populate method with "note",
-  // then responds with the article with the note included
-  db.Article.findById(req.params.id)
-  .populate("note")
-  .then(function(dbPopulate) {
-    // If any Libraries are found, send them to the client with any associated Books
-    res.json(dbPopulate);
-  })
-  .catch(function(err) {
-    // If an error occurs, send it back to the client
-    res.json(err);
-  });
+// routes
+const routes = require("./controllers/controllers.js");
+app.use("/", routes);
+
+console.log("created new database: ", databaseUri)
+
+var port = process.env.PORT || 3000;
+
+app.listen(port, function() {
+  console.log("App running on port 3000!");
 });
 
-// Route for saving/updating an Article's associated Note
-app.post("/articles/:id", function(req, res) {
-  // TODO
-  // ====
-  // save the new note that gets posted to the Notes collection
-  // then find an article from the req.params.id
-  // and update it's "note" property with the _id of the new note
-  db.Note.create(req.body)
-    .then(function(dbPopulate) {
-      
-      return db.Article.findOneAndUpdate({_id: req.params.id}, { $push: { note: dbPopulate._id } }, { new: true });
-    })
-    .then(function(dbPopulate) {
-      // If the Library was updated successfully, send it back to the client
-      res.json(dbPopulate);
-    })
-    .catch(function(err) {
-      // If an error occurs, send it back to the client
-      res.json(err);
-    });
-});
-
-// Start the server
-app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
-});
+// MONGOURI: mongodb://heroku_1qqf4x9g:pcs8m689ekgi02qrtlcr1toe71@ds155577.mlab.com:55577/heroku_1qqf4x9g

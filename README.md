@@ -1,131 +1,51 @@
-# news-scraper
-# All the News That's Fit to Scrape
+# Mongo-Cheerio-Scraper
 
-### Overview
+## Overview
+Here I created a web app that lets users view and leave comments on the latest news using Mongoose and Cheerio to scrape news from the New York Times. Technologies used are Express, Handlebars, Mongoose, Cheerio.
 
-In this assignment, you'll create a web app that lets users view and leave comments on the latest news. But you're not going to actually write any articles; instead, you'll flex your Mongoose and Cheerio muscles to scrape news from another site.
+Check out [my demo](http://mongo-newyorktimes-scraper.herokuapp.com/) to study the app's basic functionality. This demo is deployed on Heroku using mLab which works as a remote MongoDB!
 
-### Before You Begin
+![Node Screenshot 8](ss1.png)
+![Node Screenshot 7](ss2.png)
+![Node Screenshot 7](ss3.png)
+![Node Screenshot 7](ss4.png)
 
-1. Create a GitHub repo for this assignment and clone it to your computer. Any name will do -- just make sure it's related to this project in some fashion.
+These were the steps I took to provision mLab on Heroku and get it running:
 
-2. Run `npm init`. When that's finished, install and save these npm packages:
+1. Create a Heroku app in your project directory.
+2. Run this command in your Terminal/Bash window:
+    * `heroku addons:create mongolab`
+    * This command will add the free mLab provision to your project.
+3. You'll need to find the URI string that connects Mongoose to mLab. Run this command to grab that string:
+    * `heroku config | grep MONGODB_URI`
+    * Notice the value that appears after `MONGODB_URI =>`. This is your URI string. Copy it to a document for safekeeping.
+4. When you’re ready to connect Mongoose with your remote database, you'll need to add it as an [environment variable on Heroku](https://devcenter.heroku.com/articles/config-vars)
 
-   1. express
-
-   2. express-handlebars
-
-   3. mongoose
-
-   4. cheerio
-
-   5. axios
-
-3. **NOTE**: If you want to earn complete credit for your work, you must use all five of these packages in your assignment.
-
-4. In order to deploy your project to Heroku, you must set up an mLab provision. mLab is remote MongoDB database that Heroku supports natively. Follow these steps to get it running:
-
-5. Create a Heroku app in your project directory.
-
-6. Run this command in your Terminal/Bash window:
-
-* `heroku addons:create mongolab`
-
-* This command will add the free mLab provision to your project.
-
-7. When you go to connect your mongo database to mongoose, do so the following way:
-
-```js
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
-mongoose.connect(MONGODB_URI);
+* As a reminder, you can check for the environment variable and fall back to a local mongo server:
 ```
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database    
+`var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";`
+```
+* Then, just pass the `MONGODB_URI` variable to `mongoose.connect`. If you define `MONGODB_URI` on heroku, your production app will automatically use the remote database
+* You shouldn't connect to the remote database when developing locally. Your classroom's network may
+not function if you do (but it's also best practice to use a local databse for development).
 
-* This code should connect mongoose to your remote mongolab database if deployed, but otherwise will connect to the local mongoHeadlines database on your computer.
-
-8. [Watch this demo of a possible submission](https://youtu.be/4ltZr3VPmno). See the deployed demo application [here](http://nyt-mongo-scraper.herokuapp.com/).
-
-9. Your site doesn't need to match the demo's style, but feel free to attempt something similar if you'd like. Otherwise, just be creative!
-
-### Submission on BCS
-
-* **This assignment must be deployed.** * Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
-
-## Instructions
-
+## Process
 * Create an app that accomplishes the following:
-
   1. Whenever a user visits your site, the app should scrape stories from a news outlet of your choice and display them for the user. Each scraped article should be saved to your application database. At a minimum, the app should scrape and display the following information for each article:
-
      * Headline - the title of the article
-
      * Summary - a short summary of the article
-
      * URL - the url to the original article
-
      * Feel free to add more content to your database (photos, bylines, and so on).
-
-  2. Users should also be able to leave comments on the articles displayed and revisit them later. The comments should be saved to the database as well and associated with their articles. Users should also be able to delete comments left on articles. All stored comments should be visible to every user.
-
-* Beyond these requirements, be creative and have fun with this!
-
-### Tips
-
-* Go back to Saturday's activities if you need a refresher on how to partner one model with another.
-
-* Whenever you scrape a site for stories, make sure an article isn't already represented in your database before saving it; Do not save any duplicate entries.
-
-* Don't just clear out your database and populate it with scraped articles whenever a user accesses your site.
-
-  * If your app deletes stories every time someone visits, your users won't be able to see any comments except the ones that they post.
+  2. Users should also be able to leave comments on the articles displayed and revisit them later.
+  3. The comments should be saved to the database as well and associated with their articles. Users should also be able to delete comments left on articles. All stored comments should be visible to every user.
 
 ### Helpful Links
-
 * [MongoDB Documentation](https://docs.mongodb.com/manual/)
 * [Mongoose Documentation](http://mongoosejs.com/docs/api.html)
 * [Cheerio Documentation](https://github.com/cheeriojs/cheerio)
 
-### Reminder: Submission on BCS
+- - -
 
-* Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
-
----
-
-### Minimum Requirements
-
-* **This assignment must be deployed.** Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Hosting on Heroku and adding a README.md are required for this homework. In addition, add this homework to your portfolio, more information can be found below.
-
----
-
-### Hosting on Heroku
-
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database.
-
-Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
-
----
-
-### Create a README.md
-
-Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-
-* [About READMEs](https://help.github.com/articles/about-readmes/)
-
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
----
-
-### Add To Your Portfolio
-
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
----
-
-### One Last Thing
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-That goes threefold for this unit: MongoDB and Mongoose compose a challenging data management system. If there's anything you find confusing about these technologies, don't hesitate to speak with someone from the Boot Camp team.
-
-**Good Luck!**
+##### Copyright
+##### Coding Boot Camp (C) 2016. All Rights Reserved.
