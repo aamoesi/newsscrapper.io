@@ -7,10 +7,6 @@ An app that scrapes articles from the New York Times website and lets users save
 ![GitHub nyt](./public/assets/images/nyt.png)
 ![GitHub savedarticles](./public/assets/images/savedarticles.png)
 
-![Website](https://github.com/aamoesi/newsscrapper.io/blob/master/public/assets/images/nyt.png)
-
-![Website](https://github.com/aamoesi/newsscrapper.io/blob/master/public/assets/images/savedarticles.png)
-
 ## How It Works
 
 - Scrape articles by clicking the "Scrape Articles" button.
