@@ -24,9 +24,10 @@ An app that scrapes articles from the New York Times website and lets users save
 - MongoDB
 - Mongoose
 - npm packages
-    - body-parser
-    - express
-    - express-handlebars
-    - mongoose
-    - cheerio
-    - request
+
+- body-parser
+- express
+- express-handlebars
+- mongoose
+- cheerio
+- request
