@@ -16,7 +16,7 @@ An app that scrapes articles from the New York Times website and lets users save
 - Comments can be added on saved articles by clicking the "Add a Note" button.
 - Saved articles can be deleted by clicking the "Delete" button.
 
-[Check out the App](https://newsscrapp.herokuapp.com/)
+[Check out the App on heroku](https://newsscrapp.herokuapp.com/)
 
 ## Technologies Used
 
