@@ -27,7 +27,7 @@ require("./models/notes.js");
 require("./models/articles.js");
 
 // setup mongoose connection
-const databaseUri = "mongodb://localhost/mongoscraper";
+const databaseUri = "mongodb://localhost/mongoHeadlines";
 const collections = ["scrapedarticles"];
 
 
